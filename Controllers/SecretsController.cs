@@ -15,8 +15,15 @@ namespace hello_world_core.Controllers
         [HttpGet]
         public string Get()
         {
-            var secret = (new SecretManager()).Get("FirstSecret");
-            return secret;
+            try
+            {
+                var secret = (new SecretManager()).Get("FirstSecret");
+                return secret;
+            }catch(Exception ex)
+            {
+                throw ex;
+            }
+            
         }
     }
 }
